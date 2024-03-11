@@ -45,7 +45,7 @@ namespace FileTransferApp
         {
             try
             {
-                servidor = new TcpListener(IPAddress.Parse(GetLocalIPAddress()), puerto);
+                servidor = new TcpListener(IPAddress.Any, puerto);
                 servidor.Start();
 
                 cliente = servidor.AcceptTcpClient();
@@ -95,7 +95,7 @@ namespace FileTransferApp
                 {
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        cliente = new TcpClient(GetLocalIPAddress(), puerto);
+                        cliente = new TcpClient(¨192.168.1.1¨, puerto);
 
                         using (NetworkStream networkStream = cliente.GetStream())
                         using (BinaryWriter writer = new BinaryWriter(networkStream))
