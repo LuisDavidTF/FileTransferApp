@@ -95,7 +95,7 @@ namespace FileTransferApp
                 {
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        cliente = new TcpClient(¨192.168.1.1¨, puerto);
+                        cliente = new TcpClient("192.168.1.1", puerto);
 
                         using (NetworkStream networkStream = cliente.GetStream())
                         using (BinaryWriter writer = new BinaryWriter(networkStream))
